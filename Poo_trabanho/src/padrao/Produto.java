@@ -1,3 +1,4 @@
+package padrao;
 
 public class Produto {
 	private String nome;

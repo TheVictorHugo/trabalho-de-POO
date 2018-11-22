@@ -1,3 +1,4 @@
+package padrao;
 import java.util.*;
 
 public class Carrinho {
@@ -6,8 +7,19 @@ public class Carrinho {
 	private ArrayList<Produto> produtoComprar = new ArrayList<>();
 	
 	public void addCarrinho(Produto p) {
+		int qtd;
+		Scanner ler = new Scanner(System.in);
+		Produto prod = new Produto();
+		System.out.println("Digite a quantidade o produto que você precisa: ");
+		qtd = ler.nextInt();
+		Estoque estoque = new Estoque();
 		
-		produtoComprar.add(p);
+		estoque.AddNoCarrinho(qtd,p);
+		
+		prod = p;
+		prod.setQuantidade(qtd);
+		produtoComprar.add(prod);
+		//produtoComprar.last
 	}
 	
 	public void removerCarrinho() {
@@ -38,4 +50,30 @@ public class Carrinho {
 					this.produtoComprar.get(i).getQuantidade());
 		}
 	}
+
+	public int getNumeroPedido() {
+		return numeroPedido;
+	}
+
+	public void setNumeroPedido(int numeroPedido) {
+		this.numeroPedido = numeroPedido;
+	}
+
+	public int getValorCompra() {
+		return valorCompra;
+	}
+
+	public void setValorCompra(int valorCompra) {
+		this.valorCompra = valorCompra;
+	}
+
+	public ArrayList<Produto> getProdutoComprar() {
+		return produtoComprar;
+	}
+
+	public void setProdutoComprar(ArrayList<Produto> produtoComprar) {
+		this.produtoComprar = produtoComprar;
+	}
+	
+	
 }

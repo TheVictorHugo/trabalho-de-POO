@@ -1,5 +1,6 @@
+package padrao;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Token_main {
 
 	public static void main(String[] args) {
@@ -7,10 +8,15 @@ public class Token_main {
 		int opcao = 0;
 		Estoque estoque = new Estoque();
 		Carrinho carrinho = new Carrinho();
+		
+		//ArrayList<Cliente> clienteLista = new ArrayList<>();
+		ContorlaCliente contorlaCliente = new ContorlaCliente();
+		
+		
 		//Scanner ler = new Scanner(System.in);
 		//System.out.println("Digite uma opção:");
 		//opcao = ler.nextInt();
-		
+		estoque.addTeste();
 		//estoque.addListaProduto();
 		//1estoque.addListaProduto();
 		Scanner ler = new Scanner(System.in);
@@ -20,8 +26,8 @@ public class Token_main {
 			
 			System.out.println("-----------------MENU-----------------");
 			System.out.println("1 - Cadastrar produtos                |");
-			System.out.println("2 - Adicionar no carrinho           |");
-			//System.out.println("3 - Adicionar no carrinho             |");
+			System.out.println("2 - Adicionar no carrinho             |");
+			System.out.println("3 - Fechar compra                     |");
 			System.out.println("--------------------------------------");
 			
 			System.out.println();
@@ -41,6 +47,11 @@ public class Token_main {
 			System.out.println("                           CARRINHO");
 			carrinho.listaCarrinho();
 			System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+			
+			System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+			System.out.println("                           COMPRAS FINALIZADAS");
+			contorlaCliente.listaCliente();
+			System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 			opcao = ler.nextInt();
 			
 			switch(opcao) {
@@ -48,10 +59,10 @@ public class Token_main {
 				estoque.addListaProduto();
 				break;
 			case 2:
-				
-				
 				carrinho.addCarrinho(estoque.buscaProduto());
-				
+				break;
+			case 3:
+				contorlaCliente.finalizarCompra();
 				break;
 			default:
 				//
@@ -60,5 +71,6 @@ public class Token_main {
 			
 		}while(opcao !=0);
 	}
+	
 
 }
