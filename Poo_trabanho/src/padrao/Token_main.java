@@ -9,6 +9,8 @@ public class Token_main {
 		Estoque estoque = new Estoque();
 		Carrinho carrinho = new Carrinho();
 		
+		Carrinho carrinhoFinalizado = new Carrinho();
+		
 		//ArrayList<Cliente> clienteLista = new ArrayList<>();
 		ContorlaCliente contorlaCliente = new ContorlaCliente();
 		
@@ -59,10 +61,15 @@ public class Token_main {
 				estoque.addListaProduto();
 				break;
 			case 2:
+				//estoque.AtualizaEstoque(qtd, p);
 				carrinho.addCarrinho(estoque.buscaProduto());
 				break;
 			case 3:
-				contorlaCliente.finalizarCompra();
+				contorlaCliente.finalizarCompra(carrinho.getProdutoComprar());
+				//carrinho.setProdutoComprarCliente(carrinho.getProdutoComprar()); 
+				//carrinho.produtoComprar.clear();
+				
+				//carrinho.removerCarrinhoCompra();
 				break;
 			default:
 				//
@@ -71,6 +78,4 @@ public class Token_main {
 			
 		}while(opcao !=0);
 	}
-	
-
 }

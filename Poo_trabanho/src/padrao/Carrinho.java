@@ -1,24 +1,26 @@
 package padrao;
 import java.util.*;
 
-public class Carrinho {
+public class Carrinho implements carrinhoInterface{
 	private int numeroPedido;
 	private int valorCompra;
-	private ArrayList<Produto> produtoComprar = new ArrayList<>();
+	public ArrayList<Produto> produtoComprar = new ArrayList<>();
+	private ArrayList<Produto> produtoComprarCliente = new ArrayList<>();
 	
 	public void addCarrinho(Produto p) {
 		int qtd;
 		Scanner ler = new Scanner(System.in);
-		Produto prod = new Produto();
+		//Produto prod = new Produto();
 		System.out.println("Digite a quantidade o produto que você precisa: ");
 		qtd = ler.nextInt();
+		//estoque.AtualizaEstoque(qtd,p);
 		Estoque estoque = new Estoque();
 		
-		estoque.AddNoCarrinho(qtd,p);
+		estoque.AtualizaEstoque(qtd,p);
 		
-		prod = p;
-		prod.setQuantidade(qtd);
-		produtoComprar.add(prod);
+		//prod = p;
+		//prod.setQuantidade(qtd);
+		produtoComprar.add(p);
 		//produtoComprar.last
 	}
 	
@@ -37,6 +39,10 @@ public class Carrinho {
 		produtoComprar.remove(i);
 		//while(produtorremover != produtoComprar.)
 		//cliente 
+	}
+	
+	public void removerCarrinhoCompra() {
+		this.produtoComprar.clear();
 	}
 	
 	public void listaCarrinho() {
@@ -74,6 +80,13 @@ public class Carrinho {
 	public void setProdutoComprar(ArrayList<Produto> produtoComprar) {
 		this.produtoComprar = produtoComprar;
 	}
-	
+
+	public ArrayList<Produto> getProdutoComprarCliente() {
+		return produtoComprarCliente;
+	}
+
+	public void setProdutoComprarCliente(ArrayList<Produto> produtoComprarCliente) {
+		this.produtoComprarCliente = produtoComprarCliente;
+	}
 	
 }

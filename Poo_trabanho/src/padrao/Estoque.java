@@ -1,7 +1,6 @@
 package padrao;
 import java.util.*;
-
-public class Estoque {
+public class Estoque implements estoqueInterface {
 public ArrayList<Produto> produtoLista = new ArrayList<>();
 	
 	private Boolean verificaSenha() {
@@ -99,7 +98,7 @@ public ArrayList<Produto> produtoLista = new ArrayList<>();
 		return this.produtoLista.get(i);
 	}
 	
-	public void AddNoCarrinho(int qtd, Produto p) {
+	public void AtualizaEstoque(int qtd, Produto p) {
 		if( p.getQuantidade() < qtd ) {
 			System.out.println("Não temos a quantidade do produto no estoque");
 		}else {
